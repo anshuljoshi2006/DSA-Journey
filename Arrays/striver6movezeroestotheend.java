@@ -1,6 +1,6 @@
 import java.util.*;
 public class striver6movezeroestotheend{
-    public static void zeroestotheend(int arr[]){
+    public static void zeroetotheend(int arr[]){
         int newarr[] = new int[arr.length];
 
         int j=0;
@@ -18,6 +18,6 @@ public class striver6movezeroestotheend{
     }
     public static void main(String args[]){
         int arr[] = {0,1,0,3,12};
-        zeroestotheend(arr);
+        zeroetotheend(arr);
     }
 }
