@@ -1,23 +1,36 @@
 import java.util.*;
 public class striver6movezeroestotheend{
-    public static void zeroetotheend(int arr[]){
-        int newarr[] = new int[arr.length];
+    public static int[] zeroestotheend(int arr[]){
+        int j = -1;
 
-        int j=0;
-        for(int i=0 ; i<newarr.length ; i++){
-            if(arr[i] != 0){
-                newarr[j] = arr[i];
-                j++;
+        for(int i=0 ; i<arr.length ; i++){
+                if(arr[i] == 0) {
+                j = i;
+                break;
             }
         }
 
-        for(int i=0 ; i<newarr.length ; i++){
-            System.out.print(newarr[i] + " ");
+        if(j == -1){
+            return arr;
         }
 
+        for(int i=j+1 ; i<arr.length ; i++){
+            if(arr[i] != 0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                j++;
+            }
+        }
+        return arr;
     }
     public static void main(String args[]){
         int arr[] = {0,1,0,3,12};
-        zeroetotheend(arr);
+        zeroestotheend(arr);
+
+        for(int i=0 ; i<arr.length ; i++){
+            System.out.print(arr[i] + " ");
+        }
     }
 }
