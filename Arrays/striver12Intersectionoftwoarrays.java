@@ -52,7 +52,7 @@ public class striver12Intersectionoftwoarrays{
         int j = 0;
         int k = 0;
 
-        int newarr[] = new int [nums1.length + nums2.length];
+        int newarr[] = new int [Math.min(nums1.length , nums2.length)];
 
         int n = nums1.length;
         int m = nums2.length;
