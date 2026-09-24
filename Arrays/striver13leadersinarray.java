@@ -3,9 +3,9 @@ import java.util.*;
 public class striver13leadersinarray {
 
     public List<Integer> leadersInArray(int[] nums) {
+
         int n = nums.length;
 
-        // No leaders exist in an empty array.
         if (n == 0) {
             return new ArrayList<>();
         }
@@ -14,30 +14,25 @@ public class striver13leadersinarray {
 
         int maxRight = nums[n - 1];
 
-        // The rightmost element is always a leader.
         leaders.add(nums[n - 1]);
 
-        for (int index = n - 2; index >= 0; index--) {
+        for (int i = n - 2; i >= 0; i--) {
 
-            if (nums[index] >= maxRight) {
-                leaders.add(nums[index]);
+            if (nums[i] >= maxRight) {
+                leaders.add(nums[i]);
             }
 
-            // Keep the greatest value seen on the right.
-            maxRight = Math.max(maxRight, nums[index]);
+            maxRight = Math.max(maxRight, nums[i]);
         }
 
-        // Leaders were collected from right to left.
         Collections.reverse(leaders);
 
         return leaders;
     }
-}
 
-class Main {
     public static void main(String[] args) {
 
-        int[] nums = {10, 22, 12, 3, 0, 6};
+        int nums[] = {10, 22, 12, 3, 0, 6};
 
         striver13leadersinarray solution = new striver13leadersinarray();
 
