@@ -1,45 +1,37 @@
 import java.util.*;
+public class striver13leadersinarray{
+    public static List<Integer> leaders(int arr[]){
+        int n = arr.length;
 
-public class striver13leadersinarray {
+        List<Integer> lead = new ArrayList<>();
 
-    public List<Integer> leadersInArray(int[] nums) {
-
-        int n = nums.length;
-
-        if (n == 0) {
+        if(n == 0){
             return new ArrayList<>();
         }
 
-        List<Integer> leaders = new ArrayList<>();
+        int maxRight = arr[n-1];
 
-        int maxRight = nums[n - 1];
+        lead.add(arr[n-1]);
 
-        leaders.add(nums[n - 1]);
-
-        for (int i = n - 2; i >= 0; i--) {
-
-            if (nums[i] >= maxRight) {
-                leaders.add(nums[i]);
+        for(int i = n-2 ; i>=0 ; i--){
+            if(arr[i] >= maxRight){
+                lead.add(arr[i]);
             }
-
-            maxRight = Math.max(maxRight, nums[i]);
+            maxRight = Math.max(maxRight , arr[i]);
         }
 
-        Collections.reverse(leaders);
+        Collections.reverse(lead);
 
-        return leaders;
+        return lead;
     }
+    public static void main(String args[]){
+        int arr[] = {1,2,5,3,1,2};
+        
+        List<Integer> lead = leaders(arr);
 
-    public static void main(String[] args) {
-
-        int nums[] = {10, 22, 12, 3, 0, 6};
-
-        striver13leadersinarray solution = new striver13leadersinarray();
-
-        List<Integer> leaders = solution.leadersInArray(nums);
-
-        for (int value : leaders) {
+        for(int value : lead){
             System.out.print(value + " ");
         }
     }
 }
+
